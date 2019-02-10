@@ -1,0 +1,29 @@
+app:
+  name: LogCollectorDB
+  code: LCDB
+  notify: appz@cloudbourne.co
+
+build:
+  version: 2.9
+  env: DEV
+  build_file: none
+  output_files: output/*.zip
+  image_template: mongo
+  image_name: myco/log-collector-db
+
+deploy:
+  context: myco/DEV
+  replicas: 1
+  port:
+  - 27017
+
+volumes:
+- claim: mongo-pvc
+  mount: /data
+  name: data
+
+monitor:
+  notify: appzops@cloudbourne.co      
+
+properties:
+  revision : 12
