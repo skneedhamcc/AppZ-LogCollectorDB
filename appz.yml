@@ -1,0 +1,29 @@
+app:
+  name: LogCollectorMongo
+  code: LCMONGO
+  notify: appz@cloudbourne.co
+
+build:
+  version: 0.1
+  env: DEV
+  build_file: none
+  output_files: output/*.zip
+  image_template: mongo
+  image_name: myco/log-collector-mongo
+
+deploy:
+  context: myco/DEV
+  replicas: 1
+  port:
+  - 27017
+
+volumes:
+- claim: mongo-pvc
+  mount: /data
+  name: data
+
+monitor:
+  notify: appzops@cloudbourne.co      
+
+properties:
+  revision : 9
