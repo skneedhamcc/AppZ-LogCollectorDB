@@ -1,6 +1,6 @@
 app:
-  name: LogCollectorMongo
-  code: LCMONGO
+  name: LogCollectorDB
+  code: LCDB
   notify: appz@cloudbourne.co
 
 build:
@@ -9,7 +9,7 @@ build:
   build_file: none
   output_files: output/*.zip
   image_template: mongo
-  image_name: myco/log-collector-mongo
+  image_name: myco/log-collector-db
 
 deploy:
   context: myco/DEV
