@@ -19,7 +19,7 @@ deploy:
 
 volumes:
 - claim: mongo-pvc
-  mount: /data
+  mount: /appz/data
   name: data
 
 monitor:
