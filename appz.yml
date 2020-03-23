@@ -8,19 +8,19 @@ build:
   env: DEV
   build_file: none
   output_files: output/*.zip
-  image_template: mongo
-  image_name: myco/log-collector-db
+  image_template: mongo-3.2
+  image_name: alpha/log-collector-db
 
 deploy:
-  context: myco/DEV
+  context: alpha/DEV
   replicas: 1
   port:
   - 27017
 
 volumes:
-- claim: mongo-pvc
+- claim: mongo-data
   mount: /appz/data
-  name: data
+  name: mongo-data
 
 monitor:
   notify: appzops@cloudbourne.co      
